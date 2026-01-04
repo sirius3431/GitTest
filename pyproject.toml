@@ -1,0 +1,23 @@
+[project]
+name = "codespaces-uv-sample"
+version = "0.1.0"
+description = "GitHub Codespaces sample using uv, FastAPI, and pytest"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic",
+  "pytest",
+  "httpx"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+]
+
+[tool.uv]
+# 仮想環境を .venv に作る場合
+virtual = true
+venv = ".venv"
