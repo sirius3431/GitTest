@@ -1,31 +1,16 @@
-// .devcontainer/devcontainer.json
 {
-  "name": "Python 3 Codespaces Sample (uv)",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "features": {
-    // uvをDev Containerのfeatureで導入（例）
-    "ghcr.io/astral-sh/devcontainer-features/uv:1": {}
+  "name": "Python + uv Codespaces",
+  "build": {
+    "dockerfile": "Dockerfile"
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-python.black-formatter"
-      ],
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "python.formatting.provider": "black",
-        "editor.formatOnSave": true
-      }
+        "ms-python.vscode-pylance"
+      ]
     }
   },
   "postCreateCommand": "uv sync",
-  "forwardPorts": [8000],
-  "portsAttributes": {
-    "8000": {
-      "label": "FastAPI App",
-      "onAutoForward": "openBrowser"
-    }
-  }
+  "forwardPorts": [8000]
 }
